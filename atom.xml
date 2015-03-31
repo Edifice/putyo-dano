@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Karstensminde</title>
-  <link href="http://www.karstensminde.dk/atom.xml" rel="self"/>
-  <link href="http://www.karstensminde.dk"/>
-  <updated>2015-03-23T18:13:31.583Z</updated>
-  <id>http://www.karstensminde.dk</id>
+  <title>Szandi &amp; Dani</title>
+  <link href="http://edifice.github.io/putyo-dano/atom.xml" rel="self"/>
+  <link href="http://edifice.github.io/putyo-dano"/>
+  <updated>2015-03-31T09:55:41.189Z</updated>
+  <id>http://edifice.github.io/putyo-dano</id>
   <author>
-    <name>Your Name</name>
-    <email>info@karstensminde.dk</email>
+    <name>Daniel Salamon</name>
+    <email>d@nielsalamon.me</email>
   </author>
 
   
