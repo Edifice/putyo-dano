@@ -1,0 +1,156 @@
+- var scripts = getBlock('scripts')
+- var styles = getBlock('styles')
+
+//- Prettify Syntax Highlighting
+- scripts.add(["/vendor/prettify.js"])
+- styles.add(["/vendor/prettify.css"])
+
+//- jQuery
+- scripts.add(["/vendor/jquery/dist/jquery.js"])
+
+//- Bootstrap
+- scripts.add(["/vendor/components-bootstrap/js/bootstrap.js"])
+- styles.add(["/vendor/components-bootstrap/css/bootstrap.css"])
+
+// FancyBox
+- scripts.add(["/vendor/fancybox/jquery.fancybox.js"])
+- styles.add(["/vendor/fancybox/jquery.fancybox.css"])
+
+//- Other Scripts
+- scripts.add(["/vendor/log.js","/vendor/modernizr.js"])
+
+//- User
+- styles.add(["/styles/style.css"])
+- scripts.add(["/scripts/script.js"])
+
+doctype html
+html(lang="en")
+	head
+
+		// Meta
+		meta(charset="utf-8")
+		meta(http-equiv="content-type", content="text/html; charset=utf-8")
+
+		//-
+			Use the .htaccess and remove these lines to avoid edge case issues.
+			More info: h5bp.com/i/378
+		meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+
+		//- Our site title and description
+		title= getPreparedTitle()
+		meta(name="description", content=getPreparedDescription())
+		meta(name="keywords", content=getPreparedKeywords())
+		meta(name="author", content=site.author || '')
+
+		//- Output DocPad produced meta elements
+		!= getBlock('meta').toHTML()
+
+		//- Mobile viewport optimized: h5bp.com/viewport
+		meta(name="viewport", content="width=device-width")
+
+		// Icons
+		link(rel="shortcut icon", href="/ico/favicon.ico")
+		link(rel="apple-touch-icon-precomposed", sizes="144x144", href="/ico/apple-touch-icon-144-precomposed.png")
+		link(rel="apple-touch-icon-precomposed", sizes="114x114", href="/ico/apple-touch-icon-114-precomposed.png")
+		link(rel="apple-touch-icon-precomposed", sizes="72x72", href="/ico/apple-touch-icon-72-precomposed.png")
+		link(rel="apple-touch-icon-precomposed", href="/ico/apple-touch-icon-57-precomposed.png")
+
+		//- Shims: IE6-8 support of HTML5 elements
+		//if lt IE 9
+			script(async src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+
+		link(href='http://fonts.googleapis.com/css?family=Great+Vibes', rel='stylesheet', type='text/css')
+		// Styles
+		!= styles.toHTML()
+
+	body
+		.container
+			#header.row
+				.col-xs-12
+					h1
+						span Szandi & Dani
+						span Esküvője
+			#nav.row
+				.col-xs-12.col-sm-2: a(href="#", data-target="#carousel", data-slide-to="0") Üdvözlő
+				.col-xs-12.col-sm-2: a(href="#", data-target="#carousel", data-slide-to="1") Történetünk
+				.col-xs-12.col-sm-2: a(href="#", data-target="#carousel", data-slide-to="2") Galéria
+				.col-xs-12.col-sm-2: a(href="#", data-target="#carousel", data-slide-to="3") Program
+				.col-xs-12.col-sm-2: a(href="#", data-target="#carousel", data-slide-to="4") Jelentkezés
+			#content
+				.row
+					.col-xs-12
+						#carousel.carousel.slide(data-ride="carousel", data-interval="false")
+							.carousel-inner(role="listbox")
+								.item.active.welcome
+									.half
+										h2 Történetünk
+										.history
+											.row
+												.col-xs-6
+													img(src="image/male.png")
+												.col-xs-6
+													img(src="image/female.png")
+											.row
+												.col-xs-6
+													a.button(href="#", data-target="#carousel", data-slide-to="1") Dani sztorija
+												.col-xs-6
+													a.button(href="#", data-target="#carousel", data-slide-to="1") Szandi sztorija
+										.line-under
+										h2 Útvonal
+										.location
+											.row
+												.col-xs-12
+													p Templomi szertartás és állófogadás
+													iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2689.968057548588!2d19.19827389315278!3d47.607310781352865!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741d030876b3473%3A0xe4c5d8d1fe2b8eae!2zS8Ohcm9seWkgSXN0dsOhbiB1LiAxLCBGw7N0LCAyMTUx!5e0!3m2!1sen!2shu!4v1427148273463", width="415", height="200", frameborder="0", style="border:0")
+											.row
+												.col-xs-12
+													p Ünnepi lakodalom
+													iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d336.9886176977191!2d19.05745450438623!3d47.49168723897716!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xb3cbc673d5a13683!2sHotel+Erzs%C3%A9bet+City+Center+-+Budapest!5e0!3m2!1sen!2shu!4v1427148782810", width="415", height="200", frameborder="0", style="border:0")
+										.line-under
+									.half
+										h2 Képek
+										.gallery(data-target="#carousel", data-slide-to="2")
+											img.frame(src="image/image_frame.png")
+											.image
+										.line-under
+										h2 Program
+										.program
+											.row
+												.col-xs-6
+													img(src="image/rings.png")
+												.col-xs-6
+													img(src="image/food.png")
+											.row
+												.col-xs-6
+													a.button(href="#", data-target="#carousel", data-slide-to="3") A ceremónia
+												.col-xs-6
+													a.button(href="#", data-target="#carousel", data-slide-to="3") A vacsora
+										.line-under
+									.row
+										.col-xs-12.col-sm-6.col-sm-offset-3.rsvp
+											p Alig várjuk, hogy együtt ünnepeljünk!
+											p Kérlek jelezd részvételed.
+											.row
+												.col-xs-6
+													a.button(href="#", data-target="#carousel", data-slide-to="4") Jelentkezz!
+												.col-xs-6
+													img(src="image/hand.png")
+								.item
+									.row
+										.col-xs-12
+											h1.banner
+												span Történetünk
+									.half
+										p asd
+									.half
+										p asd
+								.item
+									p asd3
+								.item
+									p asd4
+								.item
+									p asd5
+			footer
+
+		// Scripts
+		!= scripts.toHTML()

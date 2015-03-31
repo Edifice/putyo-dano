@@ -1,0 +1,169 @@
+primary = #ed202d
+secondary = #005198
+background = #FFF
+lightgrey = #d3d3d3
+grey = #999999
+dark = #222
+
+border-data = 3px dashed lightgrey
+
+body, html
+	background-color background
+	min-width 600px
+	font-family "Helvetica Neue", Helvetica, Arial, sans-serif
+
+.container
+	max-width 960px
+
+//h1, h2, h3, h4, h5, h6
+//	font-family 'Open Sans', sans-serif
+
+a, a:link
+	cursor pointer
+
+#header
+	margin-top 10px
+	border-top border-data
+	padding 20px 0
+	text-align center
+	h1
+		text-transform uppercase
+		letter-spacing 4px
+		font-weight bold
+		font-family serif
+		span
+			display block
+			&:first-child
+				color secondary
+			&:last-child
+				color grey
+				letter-spacing 10px
+				font-size .8em
+
+#nav
+	border 0
+	border-top 3px solid lightgrey
+	border-bottom 3px solid lightgrey
+	padding 5px 0
+	font-size 56px
+	& > div
+		border-top 1px solid lightgrey
+		border-bottom 1px solid lightgrey
+		a
+			text-align center
+			line-height 36px
+			font-size 36px
+			font-family 'Great Vibes', serif
+			display block
+			color #678
+			&:hover
+			&:focus
+				text-decoration none
+				color primary
+	.col-sm-2
+		width 20%
+.half
+	float left
+	width 50%
+	&:first-child
+		margin-right -3px
+		border-right border-data
+	h2
+		text-align center
+		position relative
+		margin 25px 0
+		&:before,
+		&:after
+			content ''
+			position absolute
+			top 13px
+			width 30px
+			height 7px
+			border-top 1px solid #d3d3d3
+			border-bottom 1px solid #d3d3d3
+		&:before
+			right 30px
+		&:after
+			left 30px
+	.line-under
+		display block
+		position relative
+		width 50%
+		border-bottom border-data
+		margin-top 40px
+		&:before
+			content ''
+			position absolute
+			width 100%
+			height 40px
+			bottom 0
+	&:first-child .line-under
+		margin-left 50%
+		&:before
+			border-left border-data
+	&:nth-child(2) .line-under
+		&:before
+			border-right border-data
+
+#content
+	.welcome
+		.history
+		.program
+		.rsvp
+			text-align center
+			img
+				display block
+				width 80%
+				margin 0 auto
+			.button
+				border solid 1px background
+				box-shadow 0 0 0 6px secondary
+				background secondary
+				padding 5px 12px
+				margin 10px auto
+				display block
+				width 80%
+				color white
+		.gallery
+			position relative
+			width 80%
+			margin 0 10%
+			cursor pointer
+			.frame
+				position relative
+				width 100%
+				z-index 100
+			.image
+				position absolute
+				width 83.5%
+				height 78.1%
+				top 10.5%
+				left 8%
+				background-image url("../image/gallery_1.jpg")
+				background-repeat no-repeat
+				background-size cover
+				background-position 50% 50%
+		.location
+			text-align center
+			iframe
+				position relative
+				width 90%
+				margin 0 5%
+		.rsvp
+			margin-top 30px
+			p
+				font-size 35px
+				font-family 'Great Vibes', serif
+
+.banner
+	width 100%
+
+footer
+	display block
+	width 100%
+	height 125px
+	margin 40px 0
+	background-image url("../image/footer.png")
+	background-repeat no-repeat
+	background-size contain
+	background-position 50% 50%
