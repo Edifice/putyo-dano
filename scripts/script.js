@@ -39,54 +39,43 @@
           createHtmlApplication = function() {
             var data, s;
             data = formatFormInput(self.serializeArray());
-            s = '<h2>Kære Ulla,</h2>';
-            s += '<p>Navn: ' + data['name'] + '</p>';
-            s += '<p>Adresse: ' + data['city'] + ', ' + data['address'] + '</p>';
-            s += '<p>Telefon: ' + data['phone'] + '</p>';
-            s += '<p>E-mail: ' + data['email'] + '</p>';
-            s += '<p>Alder: ' + data['age'] + '</p>';
-            s += '<p>Arbejdstidspunkt: ' + data['work-time'] + '</p>';
-            s += '<p>Kørekort: ' + data['driver-license'] + '</p>';
-            s += '<p>Transportmiddel: ' + data['transport'] + '</p>';
-            s += '<p>Timer/dag: fra ' + data['daily-hours-min'] + ' til ' + data['daily-hours-max'] + '</p>';
-            s += '<p>Arbejdsgiver: ' + data['employers'] + '</p>';
-            s += '<p>Erfaring: ' + data['experience'] + '</p>';
-            s += '<p>Bemærkninger: ' + data['comment'] + '</p>';
+            s = '<h2>Új jelentkezés,</h2>';
+            s += '<p>Ember: ' + data['name'] + '</p>';
+            s += '<p>Jön-e: ' + data['answer'] + '</p>';
+            s += '<p>Üzenet: ' + data['comment'] + '</p>';
             return s + '<br />';
           };
           $.ajax({
             type: "POST",
             url: "https://mandrillapp.com/api/1.0/messages/send.json",
             data: {
-              key: "vyEF8vosdHma7F6yQEAu4w",
+              key: "TqTx6i_IhHULoHB9zb43sw",
               message: {
                 html: createHtmlApplication(),
-                subject: "Ny jobansøgninger",
-                from_email: "ulla@abc-ren.dk",
-                from_name: "ABC Rengøring og Hjemmepleje",
+                subject: "[ESKÜVŐ] Új jelentkezés",
+                from_email: "salidani@gmail.com",
+                from_name: "Oldal",
                 to: [
                   {
-                    email: "kim@creabox.dk",
-                    name: "Ulla"
+                    email: "salidani@gmail.com",
+                    name: "Dani"
                   }
                 ]
               }
             },
             beforeSend: function() {
-              $('button i', self).addClass('icon-spin icon-refresh');
-              return $('button span', self).text('Sender...');
+              return $('button', self).text('Küldés...');
             },
             complete: function() {
-              $('button i', self).removeClass('icon-spin icon-refresh');
               return self.data('sent', 'sent');
             },
             success: function() {
               $('button', self).addClass('success');
-              return $('button span', self).text('Tillykke, din anmodning er blevet sendt!');
+              return $('button', self).text('Köszönjük!');
             },
             error: function(xhr) {
               $('button', self).addClass('alert');
-              $('button span', self).text('Der opstod en fejl, du bedes kontakte os!');
+              $('button', self).text('Valami gond van, inkább hívj fel minket!');
               return console.error(xhr);
             }
           });
@@ -100,6 +89,20 @@
     if (fancy) {
       fancy.fancybox();
     }
+    $("#gallery").owlCarousel({
+      navigation: true,
+      navigationText: ['Előző kép', 'Következő kép'],
+      beforeInit: function(elem) {
+        return elem.children().sort(function() {
+          return Math.round(Math.random()) - 0.5;
+        }).each(function() {
+          return $(this).appendTo(elem);
+        });
+      },
+      slideSpeed: 300,
+      paginationSpeed: 400,
+      singleItem: true
+    });
     return this;
   });
 
